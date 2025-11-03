@@ -17,7 +17,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
+      
   app:
     build: .
     container_name: cac40_app
@@ -33,6 +33,7 @@ services:
       DB_NAME: cac40_db
       DB_USER: cac40_user
       DB_PASSWORD: cac40_password
+      API_URL: https://cac40.onrender.com
     volumes:
       - ./app:/app
     command: tail -f /dev/null

@@ -10,14 +10,24 @@ st.set_page_config(
     page_icon="📈",
     layout="wide"
 )
+from dotenv import load_dotenv
+load_dotenv()  # force le chargement du .env si présent
 
-API_URL = os.getenv("API_URL", "http://localhost:8001")
+API_URL = os.getenv("API_URL", "http://localhost:8000")
+st.write("API_URL (env) =", os.getenv("API_URL"))
+st.write("API_URL (var) =", API_URL)
 
-
+# test d'appel simple
+try:
+    r = requests.get(f"{API_URL}/docs", timeout=5)
+    st.write("Test GET /docs ->", r.status_code, r.url)
+except Exception as e:
+    st.write("Erreur test GET ->", str(e))
 # Titre principal
 st.title("📈 Dashboard CAC 40")
 st.markdown("---")
 
+st.write("API_URL utilisée :", API_URL)
 
 def call_api(endpoint):
     """Appelle l'API et retourne les données"""
