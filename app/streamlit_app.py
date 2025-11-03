@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 API_URL = os.getenv("API_URL", "http://localhost:8001")
-```
+
 
 # Titre principal
 st.title("📈 Dashboard CAC 40")

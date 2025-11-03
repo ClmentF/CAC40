@@ -25,7 +25,7 @@ services:
       postgres:
         condition: service_healthy
     ports:
-      - "800:8000"
+      - "8001:8000"
       - "8501:8501"
     environment:
       DB_HOST: postgres
