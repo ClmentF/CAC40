@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
-
+import os
 # Configuration de la page
 st.set_page_config(
     page_title="CAC 40 Dashboard",
@@ -11,8 +11,8 @@ st.set_page_config(
     layout="wide"
 )
 
-# URL de l'API
-API_URL = "http://localhost:8000"
+API_URL = os.getenv("API_URL", "http://localhost:8001")
+```
 
 # Titre principal
 st.title("📈 Dashboard CAC 40")
